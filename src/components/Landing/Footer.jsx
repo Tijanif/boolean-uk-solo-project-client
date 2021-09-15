@@ -5,7 +5,7 @@ const Footer = () => {
     <div className='FooterWrapper'>
       <footer>
         <p>
-          Created with ':heart:' by{' '}
+          Created with ❤️ by{' '}
           <a href='https://github.com/Tijanif' target='_blank'>
             Tijani Fulani
           </a>

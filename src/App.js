@@ -1,6 +1,6 @@
 import { Switch, Route } from 'react-router-dom';
 import LandingPage from './Pages/LandingPage';
-import Footer from './components/Landing/Footer';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
