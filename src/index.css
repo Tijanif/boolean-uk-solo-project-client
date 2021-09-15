@@ -1,1 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
 
+:root {
+  --purple: #6935d3;
+  --darkBule: #192951;
+  --teal: #1ad3c5;
+  --otherPurple: #6639a6;
+  --black: #000;
+  --white: #fff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+  line-height: 1.5;
+  transition: all 0.3s ease-in-out;
+  font-family: 'Josefin Sans', Arial;
+}
