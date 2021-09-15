@@ -1,0 +1,5 @@
+.FooterWrapper {
+  display: Grid;
+  align-items: center;
+  justify-content: center;
+}

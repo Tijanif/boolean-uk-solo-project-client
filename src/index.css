@@ -21,3 +21,7 @@
   transition: all 0.3s ease-in-out;
   font-family: 'Josefin Sans', Arial;
 }
+
+.wrapper {
+  height: 100vh;
+}
