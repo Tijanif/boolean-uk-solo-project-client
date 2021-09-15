@@ -3,7 +3,7 @@ header {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  color: var(--secondary);
+  color: var(--darkBule);
 }
 
 header .logo {
@@ -11,7 +11,7 @@ header .logo {
 }
 
 header .logo span {
-  color: var(--primary);
+  color: var(--darkBule);
 }
 
 .header-left {
@@ -37,7 +37,7 @@ header .logo span {
   font-size: 15px;
   outline: none;
   cursor: pointer;
-  color: #000;
+  color: var(--black);
   font-weight: bold;
 }
 
@@ -68,12 +68,12 @@ header .btns .btn {
 }
 
 .hero-left p {
-  color: #999;
+  color: var(--paraGrey);
   font-weight: bold;
 }
 
 .hero-left h5 {
-  color: #888;
+  color: var(--headingGrey);
   font-size: 1rem;
 }
 
@@ -87,15 +87,15 @@ header .btns .btn {
 .hero-title {
   margin: 1rem 0;
   font-size: 2.8em;
-  color: var(--secondary);
+  color: var(--darkBlue);
   line-height: 1.2;
 }
 
 #hero .btn {
   margin: 1rem 0;
-  border: 2px solid var(--primary);
+  border: 2px solid var(--darkBlue);
 }
 
 #hero .btn-primary:hover {
-  border-color: var(--secondary);
+  border-color: var(--lightTeal);
 }

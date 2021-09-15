@@ -19,11 +19,11 @@ const Landing = () => {
       {/* // section */}
       <section id='hero'>
         <div className='hero-left'>
-          <h5>Finally, an APP for you and your partner</h5>
+          <h5>Finally, an APP for you and your partner.</h5>
           <h1 className='hero-title'>What Is Your Share?</h1>
           <p className='hero-desc'>
             Calculate how much you and your partner should contribute towards
-            shared household expenses..
+            shared household expenses...
           </p>
           <button className='btn btn-primary'>Get Started</button>
         </div>
