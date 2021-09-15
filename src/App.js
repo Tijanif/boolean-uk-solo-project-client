@@ -1,17 +1,21 @@
 import { Switch, Route } from 'react-router-dom';
 import LandingPage from './Pages/LandingPage';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import ModalContainer from './modal/ModalContainer';
 
 function App() {
   return (
-    <Switch>
-      <Route path='/' exact>
-        <LandingPage />
-      </Route>
-      <Route>
-        <h3>Error 404 - mock mock</h3>
-      </Route>
-    </Switch>
+    <>
+      <Switch>
+        <Route path='/' exact>
+          <LandingPage />
+        </Route>
+        <Route>
+          <h3>Error 404 - mock mock</h3>
+        </Route>
+      </Switch>
+      <ModalContainer />
+    </>
   );
 }
 
