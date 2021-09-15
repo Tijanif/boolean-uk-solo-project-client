@@ -1,7 +1,8 @@
-// import React from 'react'
+import React from 'react';
 import Footer from './Footer';
 import './Landing.css';
 import '../../index.css';
+
 const Landing = () => {
   return (
     <>
