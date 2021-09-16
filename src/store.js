@@ -14,6 +14,7 @@ const useStore = create((set, get) => ({
   setSignupUser: async (signUpUserCredentials) => {
     const signupUser = await fetch(`${env.API_URL}/user/signup`, {
       method: 'POST',
+      credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
       },
@@ -39,6 +40,7 @@ const useStore = create((set, get) => ({
   setLoginUser: async (userCredentials) => {
     const loginUser = await fetch(`${env.API_URL}/user/login`, {
       method: 'POST',
+      credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
       },
