@@ -18,8 +18,9 @@ function SignupModal(props) {
       name: target.name.value,
       email: target.email.value,
       password: target.password.value,
+      avatar: target.avatar.value,
     };
-
+    console.log(newUser);
     setSignupUser(newUser);
   };
   return (
@@ -53,6 +54,10 @@ function SignupModal(props) {
               name='password'
               placeholder='Password'
             />
+          </Form.Group>
+          <Form.Group className='mb-3' controlId='formBasicAvatar'>
+            <Form.Label>Avatar</Form.Label>
+            <Form.Control type='avatar' name='avatar' placeholder='Avatar' />
           </Form.Group>
           <Button variant='primary' type='submit'>
             Submit
