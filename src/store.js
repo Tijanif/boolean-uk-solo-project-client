@@ -1,4 +1,6 @@
 import create from 'zustand';
+import env from 'react-dotenv';
+const apiUrl = process.env.API_URL;
 
 const useStore = create((set, get) => ({
   signUpUserCredentials: {
@@ -10,7 +12,7 @@ const useStore = create((set, get) => ({
     set({ signUpUserCredentials }),
   signedUpUser: null,
   setSignupUser: async (signUpUserCredentials) => {
-    const signupUser = await fetch(`http://localhost:3030/signup`, {
+    const signupUser = await fetch(`${env.API_URL}signup`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -35,7 +37,7 @@ const useStore = create((set, get) => ({
   setUserCredentials: (userCredentials) => set({ userCredentials }),
   loggedInUser: null,
   setLoginUser: async (userCredentials) => {
-    const loginUser = await fetch(`http://localhost:3030/login`, {
+    const loginUser = await fetch(`${env.API_URL}login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
