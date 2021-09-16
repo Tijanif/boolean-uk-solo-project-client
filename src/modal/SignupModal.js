@@ -1,161 +1,45 @@
-import React, { useEffect } from 'react';
-import useStore from '../store';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
-import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import Link from '@material-ui/core/Link';
-import Grid from '@material-ui/core/Grid';
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
-const useStyles = makeStyles((theme) => ({
-  main: {
-    marginTop: theme.spacing(8),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-  close: {
-    margin: theme.spacing(3, 0, 2),
-    backgroundColor: theme.palette.secondary.main,
-    '&:hover': {
-      backgroundColor: theme.palette.secondary.dark,
-    },
-    borderRadius: theme.spacing(200),
-    color: theme.palette.common.white,
-  },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
-  },
-  form: {
-    width: '100%',
-    marginTop: theme.spacing(3),
-  },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
-  },
-}));
-
-function SignupModal() {
-  const classes = useStyles();
-  const modal = useStore((state) => state.modal);
-  const setModal = useStore((state) => state.setModal);
-  const loggedInUser = useStore((state) => state.loggedInUser);
-  const setSignupUser = useStore((state) => state.setSignupUser);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    const target = e.target;
-
-    const newUser = {
-      firstName: target.firstName.value,
-      lastName: target.lastName.value,
-      email: target.email.value,
-      password: target.password.value,
-    };
-    setSignupUser(newUser);
-  };
-
-  useEffect(() => {
-    if (loggedInUser) setModal('');
-  }, [loggedInUser]);
-
+function SignupModal(props) {
   return (
-    <Container component='main' maxWidth='xs'>
-      <CssBaseline />
-      <div className={classes.main}>
-        <Grid container justifyContent='flex-end'>
-          <Button onClick={() => setModal('')} className={classes.close}>
-            X
+    <Modal
+      {...props}
+      size='m'
+      aria-labelledby='contained-modal-title-vcenter'
+      centered
+    >
+      <Modal.Header closeButton>
+        <Modal.Title id='contained-modal-title-vcenter'>Sign Up</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <Form>
+          <Form.Group className='mb-3' controlId='formBasicName'>
+            <Form.Label>Name</Form.Label>
+            <Form.Control type='name' placeholder='Name' />
+          </Form.Group>
+          <Form.Group className='mb-3' controlId='formBasicEmail'>
+            <Form.Label>Email address</Form.Label>
+            <Form.Control type='email' placeholder='Enter email' />
+            <Form.Text className='text-muted'>
+              We'll never share your email with anyone else.
+            </Form.Text>
+          </Form.Group>
+
+          <Form.Group className='mb-3' controlId='formBasicPassword'>
+            <Form.Label>Password</Form.Label>
+            <Form.Control type='password' placeholder='Password' />
+          </Form.Group>
+          <Button variant='primary' type='submit'>
+            Submit
           </Button>
-        </Grid>
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
-        <Typography component='h1' variant='h5'>
-          Create New Account
-        </Typography>
-        <form onSubmit={handleSubmit} className={classes.form}>
-          <Grid container spacing={2}>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                autoComplete='fname'
-                name='firstName'
-                variant='outlined'
-                required
-                fullWidth
-                id='firstName'
-                label='First Name'
-                autoFocus
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                variant='outlined'
-                required
-                fullWidth
-                id='lastName'
-                label='Last Name'
-                name='lastName'
-                autoComplete='lname'
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                variant='outlined'
-                required
-                fullWidth
-                id='email'
-                label='Email Address'
-                name='email'
-                autoComplete='email'
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                variant='outlined'
-                required
-                fullWidth
-                name='password'
-                label='Password'
-                type='password'
-                id='password'
-                autoComplete='current-password'
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <FormControlLabel
-                control={<Checkbox value='allowExtraEmails' color='primary' />}
-                label='I want to receive marketing promotions and updates via email.'
-              />
-            </Grid>
-          </Grid>
-          <Button
-            type='submit'
-            fullWidth
-            variant='contained'
-            color='secondary'
-            className={classes.submit}
-          >
-            Sign Up
-          </Button>
-          <Grid container justifyContent='flex-end'>
-            <Grid item>
-              <Link onClick={() => setModal('logIn')}>
-                Already have an account? Sign in
-              </Link>
-            </Grid>
-          </Grid>
-        </form>
-      </div>
-    </Container>
+        </Form>
+      </Modal.Body>
+      {/* <Modal.Footer>
+        <Button onClick={props.onHide}>Close</Button>
+      </Modal.Footer> */}
+    </Modal>
   );
 }
 

@@ -2,8 +2,10 @@ import React from 'react';
 import Footer from './Footer';
 import './Landing.css';
 import '../../index.css';
+import SignupModal from '../../modal/SignupModal';
 
 const Landing = () => {
+  const [signupModal, setSignupModal] = React.useState(false);
   return (
     <>
       <div className='wrapper'>
@@ -14,7 +16,12 @@ const Landing = () => {
             </h1>
           </div>
           <div className='header-btns'>
-            <button className='btn btn-primary'>Signup</button>
+            <button
+              className='btn btn-primary'
+              onClick={() => setSignupModal(true)}
+            >
+              Signup
+            </button>
             <button className='btn btn-primary'>Login</button>
           </div>
         </header>
@@ -35,6 +42,7 @@ const Landing = () => {
           />
         </section>
         <Footer />
+        <SignupModal show={signupModal} onHide={() => setSignupModal(false)} />
       </div>
     </>
   );
