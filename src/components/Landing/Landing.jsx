@@ -2,29 +2,17 @@ import React from 'react';
 import Footer from './Footer';
 import './Landing.css';
 import '../../index.css';
+import Header from './Header/Header';
 import SignupModal from '../../modal/SignupModal';
+import LoginModal from '../../modal/LoginModal';
 
 const Landing = () => {
   const [signupModal, setSignupModal] = React.useState(false);
+  const [loginModal, setLoginModal] = React.useState(false);
   return (
     <>
       <div className='wrapper'>
-        <header>
-          <div className='header-left'>
-            <h1 className='logo'>
-              CoupleFinance<span>.</span>
-            </h1>
-          </div>
-          <div className='header-btns'>
-            <button
-              className='btn btn-primary'
-              onClick={() => setSignupModal(true)}
-            >
-              Signup
-            </button>
-            <button className='btn btn-primary'>Login</button>
-          </div>
-        </header>
+        <Header setLoginModal={setLoginModal} setSignupModal={setSignupModal} />
         {/* // section */}
         <section id='hero'>
           <div className='hero-left'>
@@ -34,7 +22,12 @@ const Landing = () => {
               Calculate how much you and your partner should contribute towards
               shared household expenses...
             </p>
-            <button className='btn btn-primary'>Get Started</button>
+            <button
+              className='btn btn-primary'
+              onClick={() => setSignupModal(true)}
+            >
+              Get Started
+            </button>
           </div>
           <img
             src='https://cdn3d.iconscout.com/3d/premium/thumb/startup-3025714-2526912.png'
@@ -43,6 +36,7 @@ const Landing = () => {
         </section>
         <Footer />
         <SignupModal show={signupModal} onHide={() => setSignupModal(false)} />
+        <LoginModal show={loginModal} onHide={() => setLoginModal(false)} />
       </div>
     </>
   );

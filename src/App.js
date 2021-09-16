@@ -1,7 +1,6 @@
 import { Switch, Route } from 'react-router-dom';
 import LandingPage from './Pages/LandingPage';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import ModalContainer from './modal/ModalContainer';
 
 function App() {
   return (
@@ -14,7 +13,6 @@ function App() {
           <h3>Error 404 - mock mock</h3>
         </Route>
       </Switch>
-      <ModalContainer />
     </>
   );
 }
