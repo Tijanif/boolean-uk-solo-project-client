@@ -12,7 +12,7 @@ const useStore = create((set, get) => ({
     set({ signUpUserCredentials }),
   signedUpUser: null,
   setSignupUser: async (signUpUserCredentials) => {
-    const signupUser = await fetch(`${env.API_URL}/user/signup`, {
+    const signupUser = await fetch(`${env.API_URL}signup`, {
       method: 'POST',
       credentials: 'include',
       headers: {
@@ -38,7 +38,7 @@ const useStore = create((set, get) => ({
   setUserCredentials: (userCredentials) => set({ userCredentials }),
   loggedInUser: null,
   setLoginUser: async (userCredentials) => {
-    const loginUser = await fetch(`${env.API_URL}/user/login`, {
+    const loginUser = await fetch(`${env.API_URL}login`, {
       method: 'POST',
       credentials: 'include',
       headers: {
