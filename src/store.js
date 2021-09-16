@@ -1,4 +1,3 @@
-import React from 'react';
 import create from 'zustand';
 
 const useStore = create((set, get) => ({
@@ -28,6 +27,30 @@ const useStore = create((set, get) => ({
     set({
       loggedInUser: null,
     });
+  },
+  userCredentials: {
+    email: null,
+    password: null,
+  },
+  setUserCredentials: (userCredentials) => set({ userCredentials }),
+  loggedInUser: null,
+  setLoginUser: async (userCredentials) => {
+    const loginUser = await fetch(`http://localhost:3030/login`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(userCredentials),
+    }).then((response) => {
+      if (response.ok) {
+        return response.json();
+      }
+    });
+    if (loginUser) {
+      set({ loggedInUser: loginUser.user });
+    } else {
+      alert('Wrong password');
+    }
   },
 }));
 

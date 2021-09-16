@@ -6,7 +6,7 @@ const Footer = () => {
       <footer>
         <p>
           Created with ❤️ by{' '}
-          <a href='https://github.com/Tijanif' target='_blank'>
+          <a href='https://github.com/Tijanif' target='_blank' rel='noreferrer'>
             Tijani Fulani
           </a>
         </p>

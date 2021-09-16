@@ -2,9 +2,12 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import useStore from '../store';
+import { useHistory } from 'react-router';
 
 function SignupModal(props) {
   const setSignupUser = useStore((state) => state.setSignupUser);
+
+  const history = useHistory();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -16,7 +19,7 @@ function SignupModal(props) {
       email: target.email.value,
       password: target.password.value,
     };
-    console.log(newUser);
+
     setSignupUser(newUser);
   };
   return (
