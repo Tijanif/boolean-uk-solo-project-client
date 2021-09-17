@@ -2,6 +2,8 @@ import React from 'react';
 import Col from 'react-bootstrap/Col';
 import RangeSlider from 'react-bootstrap/FormRange';
 import useStore from '../../store';
+import ExpenseList from '../Expenses/ExpenseList';
+import AddExpenseForm from '../Expenses/AddExpenseForm';
 
 const MainLeft = () => {
   // const [youValue, setYouValue] = React.useState(0);
@@ -11,6 +13,9 @@ const MainLeft = () => {
   const youValue = useStore((state) => state.youValue);
   const partnerValue = useStore((state) => state.partnerValue);
   const setPartnerValue = useStore((state) => state.setPartnerValue);
+  // const expenses = useStore((state) => state.expenses);
+
+  // console.log(expenses);
 
   let newYouValue = new Intl.NumberFormat('en-IN', {
     style: 'currency',
@@ -61,11 +66,20 @@ const MainLeft = () => {
             <span>{newPartnerValue}</span>
           </div>
         </div>
-        <div className='monthly-expenses'>
-          <h3>Monthly Expenses</h3>
-          <ul className='expenses'>
-            <li></li>
-          </ul>
+        <div>
+          <h3 className='mt-2'>Monthly Expenses</h3>
+          {/* <div className='row mt-2'>
+            <div className='col-sm'>
+              <ExpenseList />
+            </div>
+          </div> */}
+          <ExpenseList />
+        </div>
+        <h3 className='mt-3'>Add Expense</h3>
+        <div className='row mt-3'>
+          <div className='col-sm'>
+            <AddExpenseForm />
+          </div>
         </div>
       </div>
     </>
