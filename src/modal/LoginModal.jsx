@@ -7,7 +7,7 @@ import { useHistory } from 'react-router';
 function LoginModal(props) {
   const setLoginUser = useStore((state) => state.setLoginUser);
 
-  const history = useHistory();
+  let history = useHistory();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -20,6 +20,7 @@ function LoginModal(props) {
     };
     console.log(newCredentials);
     setLoginUser(newCredentials);
+    history.push('/main');
   };
 
   return (

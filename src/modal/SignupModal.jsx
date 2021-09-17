@@ -7,7 +7,7 @@ import { useHistory } from 'react-router';
 function SignupModal(props) {
   const setSignupUser = useStore((state) => state.setSignupUser);
 
-  const history = useHistory();
+  let history = useHistory();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -22,6 +22,7 @@ function SignupModal(props) {
     };
     console.log(newUser);
     setSignupUser(newUser);
+    history.push('/main');
   };
   return (
     <Modal
