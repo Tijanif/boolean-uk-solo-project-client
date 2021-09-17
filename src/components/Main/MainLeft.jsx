@@ -1,11 +1,16 @@
 import React from 'react';
 import Col from 'react-bootstrap/Col';
 import RangeSlider from 'react-bootstrap/FormRange';
+import useStore from '../../store';
 
 const MainLeft = () => {
-  const [youValue, setYouValue] = React.useState(0);
-  const [partnerValue, setPartnerValue] = React.useState(0);
+  // const [youValue, setYouValue] = React.useState(0);
+  // const [partnerValue, setPartnerValue] = React.useState(0);
   const MAX_INCOME = 75000;
+  const setYouValue = useStore((state) => state.setYouValue);
+  const youValue = useStore((state) => state.youValue);
+  const partnerValue = useStore((state) => state.partnerValue);
+  const setPartnerValue = useStore((state) => state.setPartnerValue);
 
   let newYouValue = new Intl.NumberFormat('en-IN', {
     style: 'currency',
