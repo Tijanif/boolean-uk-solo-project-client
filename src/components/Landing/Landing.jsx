@@ -1,8 +1,8 @@
 import React from 'react';
-import Footer from './Footer';
+
 import './Landing.css';
 import '../../index.css';
-import Header from './Header/Header';
+import Header from '../Header/Header';
 import SignupModal from '../../modal/SignupModal';
 import LoginModal from '../../modal/LoginModal';
 
@@ -34,7 +34,7 @@ const Landing = () => {
             alt=''
           />
         </section>
-        <Footer />
+
         <SignupModal show={signupModal} onHide={() => setSignupModal(false)} />
         <LoginModal show={loginModal} onHide={() => setLoginModal(false)} />
       </div>
