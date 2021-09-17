@@ -3,6 +3,7 @@ import env from 'react-dotenv';
 // const apiUrl = process.env.API_URL;
 
 const useStore = create((set, get) => ({
+  // MAX_INCOME: 75000,
   signUpUserCredentials: {
     name: null,
     email: null,
@@ -55,6 +56,14 @@ const useStore = create((set, get) => ({
     } else {
       alert('Wrong password');
     }
+  },
+  youValue: 0,
+  setYouValue: (youValue) => {
+    set({ youValue });
+  },
+  partnerValue: 0,
+  setPartnerValue: (partnerValue) => {
+    set({ partnerValue });
   },
 }));
 
