@@ -1,6 +1,7 @@
 import { Switch, Route } from 'react-router-dom';
 import LandingPage from './Pages/LandingPage';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'react-bootstrap-range-slider/dist/react-bootstrap-range-slider.css';
 import Footer from './components/Footer/Footer';
 import MainPage from './Pages/MainPage';
 

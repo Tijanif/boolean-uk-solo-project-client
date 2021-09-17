@@ -1,5 +1,14 @@
+import MainLeft from '../components/Main/MainLeft';
+
 const MainPage = () => {
-  return <h1>Welcome to main page</h1>;
+  return (
+    <>
+      <div className='wrapper'>
+        <h1>Welcome to main page</h1>
+        <MainLeft />
+      </div>
+    </>
+  );
 };
 
 export default MainPage;
