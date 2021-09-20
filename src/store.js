@@ -40,6 +40,9 @@ const useStore = create((set, get) => ({
     console.log('Getting expenses', get, get().expenses);
     set({ expenses: [...get().expenses, newExpenses] });
   },
+  removeExpenses: (id) => {
+    set({ expenses: get().expenses.filter((expense) => expense.id !== id) });
+  },
   signUpUserCredentials: {
     name: null,
     email: null,

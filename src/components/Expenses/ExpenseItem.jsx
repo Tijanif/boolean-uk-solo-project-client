@@ -4,8 +4,14 @@ import Badge from 'react-bootstrap/Badge';
 import { DropdownButton } from 'react-bootstrap';
 import { Dropdown } from 'react-bootstrap';
 import './ExpenseItem.css';
+import useStore from '../../store';
 
 const ExpenseItem = (props) => {
+  const removeExpenses = useStore((state) => state.removeExpenses);
+
+  const handleDelete = () => {
+    removeExpenses(props.id);
+  };
   return (
     <li className='list-group-item container align-items-center'>
       <div className='row'>
@@ -27,7 +33,7 @@ const ExpenseItem = (props) => {
               £{props.cost}
             </span>
           </Badge>
-          <TiDelete size='1.5em'></TiDelete>
+          <TiDelete size='1.5em' onClick={handleDelete}></TiDelete>
         </div>
       </div>
     </li>

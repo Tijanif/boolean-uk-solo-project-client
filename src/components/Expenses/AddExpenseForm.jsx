@@ -17,7 +17,7 @@ const AddExpenseForm = () => {
     const newExpense = {
       id: uuid(),
       description: description,
-      const: parseInt(cost),
+      cost: parseInt(cost),
     };
 
     setExpenses(newExpense);
