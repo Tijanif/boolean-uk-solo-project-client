@@ -8,14 +8,10 @@ import MainPage from './Pages/MainPage';
 import NologinHeader from '../src/components/Header/NologinHeader';
 import LogoutHeader from '../src/components/Header/LogoutHeader';
 import useStore from './store';
-import SignupModal from './modal/SignupModal';
-import LoginModal from './modal/LoginModal';
 
 function App() {
   const loggedInUser = useStore((state) => state.loggedInUser);
-  const [signupModal, setSignupModal] = React.useState(false);
-  const [loginModal, setLoginModal] = React.useState(false);
-  console.log(loggedInUser);
+
   return (
     <>
       <Switch>

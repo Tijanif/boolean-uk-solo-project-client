@@ -1,4 +1,7 @@
 import React from 'react';
+
+import SignupModal from '../../modal/SignupModal';
+import LoginModal from '../../modal/LoginModal';
 const NologinHeader = () => {
   const [signupModal, setSignupModal] = React.useState(false);
   const [loginModal, setLoginModal] = React.useState(false);
@@ -19,6 +22,8 @@ const NologinHeader = () => {
         <button className='btn btn-primary' onClick={() => setLoginModal(true)}>
           Login
         </button>
+        <SignupModal show={signupModal} onHide={() => setSignupModal(false)} />
+        <LoginModal show={loginModal} onHide={() => setLoginModal(false)} />
       </div>
     </header>
   );
