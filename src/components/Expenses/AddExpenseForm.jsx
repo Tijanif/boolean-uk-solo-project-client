@@ -1,4 +1,6 @@
 import React from 'react';
+import { DropdownButton } from 'react-bootstrap';
+import { Dropdown } from 'react-bootstrap';
 
 const AddExpenseForm = () => {
   return (
@@ -14,10 +16,21 @@ const AddExpenseForm = () => {
           ></input>
         </div>
         <div className='col-sm'>
+          <DropdownButton
+            id='dropdown-basic-button'
+            title='Payer'
+            className='my-dropdown'
+          >
+            <Dropdown.Item href='#/action-1'>You</Dropdown.Item>
+            <Dropdown.Item href='#/action-2'>Partner</Dropdown.Item>
+          </DropdownButton>
+        </div>
+
+        <div className='col-sm'>
           <label for='cost'>Cost</label>
           <input
             required='required'
-            type='text'
+            type='number'
             className='form-control'
             id='cost'
           ></input>

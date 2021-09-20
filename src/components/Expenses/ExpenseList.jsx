@@ -1,17 +1,18 @@
 import React from 'react';
+import useStore from '../../store';
 import ExpenseItem from './ExpenseItem';
 
 const ExpenseList = () => {
-  const expenses = [
-    { id: 12, name: 'Netflix', cost: 12 },
-    { id: 13, name: 'Rent', cost: 1400 },
-    { id: 14, name: 'car service', cost: 50 },
-  ];
+  const expenses = useStore((state) => state.expenses);
 
   return (
-    <ul className='list-group'>
+    <ul className='list-group col-sm'>
       {expenses.map((expense) => (
-        <ExpenseItem id={expense.id} name={expense.name} cost={expense.cost} />
+        <ExpenseItem
+          // id={expense.id}
+          name={expense.description}
+          cost={expense.cost}
+        />
       ))}
     </ul>
   );

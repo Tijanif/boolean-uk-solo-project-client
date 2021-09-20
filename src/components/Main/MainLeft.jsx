@@ -6,16 +6,11 @@ import ExpenseList from '../Expenses/ExpenseList';
 import AddExpenseForm from '../Expenses/AddExpenseForm';
 
 const MainLeft = () => {
-  // const [youValue, setYouValue] = React.useState(0);
-  // const [partnerValue, setPartnerValue] = React.useState(0);
   const MAX_INCOME = 75000;
   const setYouValue = useStore((state) => state.setYouValue);
   const youValue = useStore((state) => state.youValue);
   const partnerValue = useStore((state) => state.partnerValue);
   const setPartnerValue = useStore((state) => state.setPartnerValue);
-  // const expenses = useStore((state) => state.expenses);
-
-  // console.log(expenses);
 
   let newYouValue = new Intl.NumberFormat('en-IN', {
     style: 'currency',
@@ -28,61 +23,59 @@ const MainLeft = () => {
   }).format(partnerValue);
 
   return (
-    <>
-      <div className='wrapper-mainLeft'>
-        <div className='main-content'>
-          <h2>How much is your share?</h2>
-          <p>
-            Calculate how much you and your partner should contribute towards
-            shared household expenses
-          </p>
+    <div className='wrapper-mainLeft'>
+      <div className='main-content'>
+        <h2>How much is your share?</h2>
+        <p>
+          Calculate how much you and your partner should contribute towards
+          shared household expenses
+        </p>
+      </div>{' '}
+      <div className='sliders'>
+        <h3>Annual Income</h3>
+        <div className='you'>
+          <span>You</span>
+          <Col sm='4'>
+            <RangeSlider
+              step={500}
+              min={0}
+              max={MAX_INCOME}
+              value={youValue}
+              onChange={(e) => setYouValue(e.target.value)}
+            />
+          </Col>
+          <span>{newYouValue}</span>
         </div>
-        <div className='sliders'>
-          <h3>Annual Income</h3>
-          <div className='you'>
-            <span>You</span>
-            <Col sm='4'>
-              <RangeSlider
-                step={500}
-                min={0}
-                max={MAX_INCOME}
-                value={youValue}
-                onChange={(e) => setYouValue(e.target.value)}
-              />
-            </Col>
-            <span>{newYouValue}</span>
-          </div>
-          <div className='partner'>
-            <span>Partner</span>
-            <Col sm='4'>
-              <RangeSlider
-                step={500}
-                min={0}
-                max={MAX_INCOME}
-                value={partnerValue}
-                onChange={(e) => setPartnerValue(e.target.value)}
-              />
-            </Col>
-            <span>{newPartnerValue}</span>
-          </div>
+        <div className='partner'>
+          <span>Partner</span>
+          <Col sm='4'>
+            <RangeSlider
+              step={500}
+              min={0}
+              max={MAX_INCOME}
+              value={partnerValue}
+              onChange={(e) => setPartnerValue(e.target.value)}
+            />
+          </Col>
+          <span>{newPartnerValue}</span>
         </div>
-        <div>
-          <h3 className='mt-2'>Monthly Expenses</h3>
-          {/* <div className='row mt-2'>
+      </div>
+      <div>
+        <h3 className='mt-2'>Monthly Expenses</h3>
+        {/* <div className='row mt-2'>
             <div className='col-sm'>
               <ExpenseList />
             </div>
           </div> */}
-          <ExpenseList />
-        </div>
-        <h3 className='mt-3'>Add Expense</h3>
-        <div className='row mt-3'>
-          <div className='col-sm'>
-            <AddExpenseForm />
-          </div>
+        <ExpenseList />
+      </div>
+      <h3 className='mt-3'>Add Expense</h3>
+      <div className='row mt-3'>
+        <div className='col-sm'>
+          <AddExpenseForm />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
