@@ -1,8 +1,10 @@
 import MainLeft from '../components/Main/MainLeft';
+import LogoutHeader from '../components/Header/LogoutHeader';
 
 const MainPage = () => {
   return (
     <>
+      <LogoutHeader />
       <div className='container'>
         <div className='row'>
           <div className='col-sm'>

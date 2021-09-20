@@ -23,10 +23,6 @@ const AddExpenseForm = () => {
     setExpenses(newExpense);
     setName('');
     setCost('');
-
-    console.log('Cost', cost);
-    console.log('describtion', description);
-    console.log('Payer', payer);
   };
 
   return (

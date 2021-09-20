@@ -2,7 +2,7 @@ import React from 'react';
 
 import './Landing.css';
 import '../../index.css';
-import Header from '../Header/Header';
+import NologinHeader from '../Header/NologinHeader';
 import SignupModal from '../../modal/SignupModal';
 import LoginModal from '../../modal/LoginModal';
 
@@ -12,7 +12,10 @@ const Landing = () => {
   return (
     <>
       <div className='wrapper'>
-        <Header setLoginModal={setLoginModal} setSignupModal={setSignupModal} />
+        {/* <NologinHeader
+          setLoginModal={setLoginModal}
+          setSignupModal={setSignupModal}
+        /> */}
         {/* // section */}
         <section id='hero'>
           <div className='hero-left'>
@@ -35,8 +38,8 @@ const Landing = () => {
           />
         </section>
 
-        <SignupModal show={signupModal} onHide={() => setSignupModal(false)} />
-        <LoginModal show={loginModal} onHide={() => setLoginModal(false)} />
+        {/* <SignupModal show={signupModal} onHide={() => setSignupModal(false)} />
+        <LoginModal show={loginModal} onHide={() => setLoginModal(false)} /> */}
       </div>
     </>
   );

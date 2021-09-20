@@ -1,15 +1,27 @@
+import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import LandingPage from './Pages/LandingPage';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-bootstrap-range-slider/dist/react-bootstrap-range-slider.css';
 import Footer from './components/Footer/Footer';
 import MainPage from './Pages/MainPage';
+import NologinHeader from '../src/components/Header/NologinHeader';
+import LogoutHeader from '../src/components/Header/LogoutHeader';
+import useStore from './store';
+import SignupModal from './modal/SignupModal';
+import LoginModal from './modal/LoginModal';
 
 function App() {
+  const loggedInUser = useStore((state) => state.loggedInUser);
+  const [signupModal, setSignupModal] = React.useState(false);
+  const [loginModal, setLoginModal] = React.useState(false);
+  console.log(loggedInUser);
   return (
     <>
       <Switch>
         <Route path='/' exact>
+          {loggedInUser ? <LogoutHeader /> : <NologinHeader />}
+
           <LandingPage />
         </Route>
         <Route path='/main' exact>
@@ -19,6 +31,7 @@ function App() {
           <h3>Error 404 - mock mock</h3>
         </Route>
       </Switch>
+
       <Footer />
     </>
   );

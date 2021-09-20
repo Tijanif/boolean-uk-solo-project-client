@@ -1,4 +1,7 @@
-const Header = ({ setLoginModal, setSignupModal }) => {
+import React from 'react';
+const NologinHeader = () => {
+  const [signupModal, setSignupModal] = React.useState(false);
+  const [loginModal, setLoginModal] = React.useState(false);
   return (
     <header>
       <div className='header-left'>
@@ -21,4 +24,4 @@ const Header = ({ setLoginModal, setSignupModal }) => {
   );
 };
 
-export default Header;
+export default NologinHeader;

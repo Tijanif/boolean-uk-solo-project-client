@@ -96,6 +96,16 @@ const useStore = create((set, get) => ({
       alert('Wrong password');
     }
   },
+  setLogoutUser: async () => {
+    const logUserOut = await fetch(`${env.API_URL}logout`, {
+      method: 'GET',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    set({ loggedInUser: logUserOut });
+  },
   youValue: 0,
   setYouValue: (youValue) => {
     set({ youValue });
