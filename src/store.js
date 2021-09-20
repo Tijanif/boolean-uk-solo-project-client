@@ -4,34 +4,42 @@ import env from 'react-dotenv';
 
 const monthlyExpenses = [
   {
+    id: 11,
     description: 'Electrity',
     cost: 100,
   },
   {
+    id: 12,
     description: 'Internet',
     cost: 45,
   },
   {
+    id: 13,
     description: 'Gym',
     cost: 60,
   },
   {
+    id: 14,
     description: 'Netflix',
     cost: 12,
   },
   {
+    id: 14,
     description: 'Rent',
     cost: 1200,
   },
   {
+    id: 15,
     description: 'Savings',
     cost: 800,
   },
 ];
 const useStore = create((set, get) => ({
-  // MAX_INCOME: 75000,
   expenses: monthlyExpenses,
-  setExpenses: (expenses) => set({ ...expenses, expenses }),
+  setExpenses: (newExpenses) => {
+    console.log('Getting expenses', get, get().expenses);
+    set({ expenses: [...get().expenses, newExpenses] });
+  },
   signUpUserCredentials: {
     name: null,
     email: null,

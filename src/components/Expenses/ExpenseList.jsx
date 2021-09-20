@@ -5,11 +5,12 @@ import ExpenseItem from './ExpenseItem';
 const ExpenseList = () => {
   const expenses = useStore((state) => state.expenses);
 
+  console.log('Expenses in the expense list comp', expenses);
   return (
-    <ul className='list-group col-sm'>
+    <ul className='list-group '>
       {expenses.map((expense) => (
         <ExpenseItem
-          // id={expense.id}
+          id={expense.id}
           name={expense.description}
           cost={expense.cost}
         />

@@ -31,43 +31,38 @@ const MainLeft = () => {
           shared household expenses
         </p>
       </div>{' '}
-      <div className='sliders'>
-        <h3>Annual Income</h3>
-        <div className='you'>
-          <span>You</span>
-          <Col sm='4'>
-            <RangeSlider
-              step={500}
-              min={0}
-              max={MAX_INCOME}
-              value={youValue}
-              onChange={(e) => setYouValue(e.target.value)}
-            />
-          </Col>
-          <span>{newYouValue}</span>
-        </div>
-        <div className='partner'>
-          <span>Partner</span>
-          <Col sm='4'>
-            <RangeSlider
-              step={500}
-              min={0}
-              max={MAX_INCOME}
-              value={partnerValue}
-              onChange={(e) => setPartnerValue(e.target.value)}
-            />
-          </Col>
-          <span>{newPartnerValue}</span>
-        </div>
+      <h3>Annual Income</h3>
+      <div className='you'>
+        <span>You</span>
+        <Col sm='4'>
+          <RangeSlider
+            step={500}
+            min={0}
+            max={MAX_INCOME}
+            value={youValue}
+            onChange={(e) => setYouValue(e.target.value)}
+          />
+        </Col>
+        <span>{newYouValue}</span>
       </div>
-      <div>
-        <h3 className='mt-2'>Monthly Expenses</h3>
-        {/* <div className='row mt-2'>
-            <div className='col-sm'>
-              <ExpenseList />
-            </div>
-          </div> */}
-        <ExpenseList />
+      <div className='partner'>
+        <span>Partner</span>
+        <Col sm='4'>
+          <RangeSlider
+            step={500}
+            min={0}
+            max={MAX_INCOME}
+            value={partnerValue}
+            onChange={(e) => setPartnerValue(e.target.value)}
+          />
+        </Col>
+        <span>{newPartnerValue}</span>
+      </div>
+      <h3 className='mt-3'>Montly Expenses</h3>
+      <div className='row mt-3'>
+        <div className='col-sm'>
+          <ExpenseList />
+        </div>
       </div>
       <h3 className='mt-3'>Add Expense</h3>
       <div className='row mt-3'>
