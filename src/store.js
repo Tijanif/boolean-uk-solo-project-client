@@ -104,7 +104,9 @@ const useStore = create((set, get) => ({
         'Content-Type': 'application/json',
       },
     });
-    set({ loggedInUser: logUserOut });
+    if (logUserOut) {
+      set({ loggedInUser: null });
+    }
   },
   youValue: 0,
   setYouValue: (youValue) => {

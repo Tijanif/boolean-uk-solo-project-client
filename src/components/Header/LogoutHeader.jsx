@@ -4,6 +4,7 @@ import useStore from '../../store';
 const NologinHeader = () => {
   const history = useHistory();
   const setLogoutUser = useStore((state) => state.setLogoutUser);
+  const logOut = useStore((state) => state.logOut);
 
   const handlelogout = () => {
     setLogoutUser();

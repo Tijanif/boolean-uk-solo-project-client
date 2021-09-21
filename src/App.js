@@ -11,7 +11,7 @@ import useStore from './store';
 
 function App() {
   const loggedInUser = useStore((state) => state.loggedInUser);
-
+  console.log('Logged in user:', loggedInUser);
   return (
     <>
       <Switch>
