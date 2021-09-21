@@ -1,0 +1,97 @@
+button {
+  background-color: transparent;
+  border: 0 solid;
+}
+.report {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  padding-bottom: 0.5rem;
+  border-bottom-width: 1px;
+  border-color: #088977;
+  text-align: left;
+}
+
+.label {
+  color: #088977;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 700;
+  width: 25%;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+.percentageOfTotal {
+  color: #088977;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 700;
+  width: 25%;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  text-align: right;
+}
+
+.percentageOfTotal span {
+  display: inline;
+}
+
+.amountDue {
+  color: #088977;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 700;
+  width: 41.6667%;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  text-align: right;
+  margin-right: auto;
+}
+.you-btn {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-bottom-width: 1px;
+  border-color: #088977;
+  text-align: left;
+}
+
+.you-span {
+  width: 25%;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+}
+.you-percentage {
+  width: 25%;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  text-align: right;
+  font-weight: 700;
+}
+
+.you-amount-container {
+  width: 41.6667%;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  text-align: right;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.you-amount {
+  font-weight: 700;
+}
+
+.no-border {
+  border-style: none;
+}

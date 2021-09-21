@@ -20,8 +20,12 @@
   line-height: 1.5;
   transition: all 0.3s ease-in-out;
   font-family: 'Josefin Sans', Arial;
+  /* background: linear-gradient(145deg, #1ad3c5 0%, #6639a6 100%) no-repeat fixed; */
 }
 
-.wrapper {
+body {
   height: 100vh;
 }
+/* .wrapper {
+  height: 100vh;
+} */
