@@ -1,11 +1,7 @@
-import { faPlusSquare } from '@fortawesome/free-solid-svg-icons';
 import React, { useState } from 'react';
-import useStore from '../../store';
 import './MainRight.css';
 
 const MainRight = () => {
-  const youValue = useStore((state) => state.youValue);
-  const partnerValue = useStore((state) => state.partnerValue);
   const [radio, setRadio] = useState({
     split: false,
     FytyFyty: false,
@@ -16,11 +12,12 @@ const MainRight = () => {
     <>
       <div className='container'>
         <div className='row'>
+          {/* Main Container */}
           <div className='container'>
             <h2>Dive our expenses</h2>
             <div className='container'>
               <div className='row'>
-                <div className='col-sm'>
+                <div className='col-sm radio-group'>
                   <ul>
                     <li>
                       <div>
@@ -39,7 +36,7 @@ const MainRight = () => {
                         <label htmlFor='split-income'>
                           <span></span>
                           <div>
-                            <span>Based on Income</span>
+                            <span className='span-cont'>Based on Income</span>
                             {radio.split ? (
                               <p>
                                 The amount you and your partner owe for shared
@@ -69,7 +66,7 @@ const MainRight = () => {
                         <label htmlFor='50-50-split'>
                           <span></span>
                           <div>
-                            <span>50/50 split</span>
+                            <span className='span-cont'>50/50 split</span>
                             {radio.FytyFyty ? (
                               <p>
                                 Your shared expenses are split in half for you
@@ -100,7 +97,7 @@ const MainRight = () => {
                         <label htmlFor='grabAbag-split'>
                           <span></span>
                           <div>
-                            <span>Grab bag method</span>
+                            <span className='span-cont'>Grab bag method</span>
                             {radio.grabAbag ? (
                               <p>
                                 Designate who will be responsible for each bill
@@ -124,6 +121,7 @@ const MainRight = () => {
             </div>
           </div>
         </div>
+        {/* Break Down */}
         <div className='breakdown'>
           <h3>Here is your total contribution breakdown</h3>
           <div className='report'>
@@ -156,6 +154,7 @@ const MainRight = () => {
             </span>
           </button>
         </div>
+        {/* Conclution */}
         <div className='conclusion'>
           <h3>What Now?</h3>
           <p>

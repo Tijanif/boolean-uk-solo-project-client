@@ -12,7 +12,6 @@ const MainPage = () => {
             <MainLeft />
           </div>
           <div className='col-sm'>
-            <p>Main Right</p>
             <MainRight />
           </div>
         </div>

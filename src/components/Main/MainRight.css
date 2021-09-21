@@ -2,6 +2,14 @@ button {
   background-color: transparent;
   border: 0 solid;
 }
+.span-cont {
+  margin: 5px;
+  font-weight: bold;
+  color: #088977;
+}
+.radio-group {
+  margin-bottom: 1rem;
+}
 .report {
   display: flex;
   -webkit-box-align: center;
@@ -48,6 +56,9 @@ button {
   padding-right: 0.5rem;
   text-align: right;
   margin-right: auto;
+}
+.breakdown {
+  margin-bottom: 5rem;
 }
 .you-btn {
   display: flex;

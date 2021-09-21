@@ -1,8 +1,6 @@
 import React from 'react';
-
 import './Landing.css';
 import '../../index.css';
-
 const Landing = () => {
   const [signupModal, setSignupModal] = React.useState(false);
 
