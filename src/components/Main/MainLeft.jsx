@@ -4,6 +4,9 @@ import RangeSlider from 'react-bootstrap/FormRange';
 import useStore from '../../store';
 import ExpenseList from '../Expenses/ExpenseList';
 import AddExpenseForm from '../Expenses/AddExpenseForm';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import PersonForm from '../Inputs/PersonForm';
 
 const MainLeft = () => {
   const MAX_INCOME = 75000;
@@ -31,33 +34,43 @@ const MainLeft = () => {
           shared household expenses
         </p>
       </div>{' '}
-      <h3>Annual Income</h3>
-      <div className='you'>
-        <span>You</span>
-        <Col sm='4'>
-          <RangeSlider
-            step={500}
-            min={0}
-            max={MAX_INCOME}
-            value={youValue}
-            onChange={(e) => setYouValue(e.target.value)}
-          />
-        </Col>
-        <span>{newYouValue}</span>
-      </div>
-      <div className='partner'>
-        <span>Partner</span>
-        <Col sm='4'>
-          <RangeSlider
-            step={500}
-            min={0}
-            max={MAX_INCOME}
-            value={partnerValue}
-            onChange={(e) => setPartnerValue(e.target.value)}
-          />
-        </Col>
-        <span>{newPartnerValue}</span>
-      </div>
+      <Container>
+        <Row>
+          <Col xs>
+            <h5>Annual Income</h5>
+            <div className='col-sm'>
+              <span>You</span>
+              <Col sm='4'>
+                <RangeSlider
+                  step={500}
+                  min={0}
+                  max={MAX_INCOME}
+                  value={youValue}
+                  onChange={(e) => setYouValue(e.target.value)}
+                />
+              </Col>
+              <span>{newYouValue}</span>
+            </div>
+            <div className='col-sm'>
+              <span>Partner</span>
+              <Col sm='4'>
+                <RangeSlider
+                  step={500}
+                  min={0}
+                  max={MAX_INCOME}
+                  value={partnerValue}
+                  onChange={(e) => setPartnerValue(e.target.value)}
+                />
+              </Col>
+              <span>{newPartnerValue}</span>
+            </div>
+          </Col>
+          <Col xs>
+            <h5>Create a Person</h5>
+            <PersonForm />
+          </Col>
+        </Row>
+      </Container>
       <h3 className='mt-3'>Montly Expenses</h3>
       <div className='row mt-3'>
         <div className='col-sm'>

@@ -1,7 +1,7 @@
 import create from 'zustand';
 import env from 'react-dotenv';
 // const apiUrl = process.env.API_URL;
-
+import { useHistory } from 'react-router';
 const monthlyExpenses = [
   {
     id: 11,
@@ -34,6 +34,7 @@ const monthlyExpenses = [
     cost: 800,
   },
 ];
+
 const useStore = create((set, get) => ({
   expenses: monthlyExpenses,
   setExpenses: (newExpenses) => {
@@ -93,6 +94,7 @@ const useStore = create((set, get) => ({
     if (loginUser) {
       set({ loggedInUser: loginUser.user });
     } else {
+      set({ loggedInUser: null });
       alert('Wrong password');
     }
   },
