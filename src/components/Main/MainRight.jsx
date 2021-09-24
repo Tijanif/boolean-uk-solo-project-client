@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './MainRight.css';
+import useStore from '../../store';
 
 const MainRight = () => {
   const [radio, setRadio] = useState({
@@ -7,6 +8,41 @@ const MainRight = () => {
     FytyFyty: false,
     grabAbag: false,
   });
+
+  const incomeYou = useStore((store) => store.youValue);
+  const incomePartner = useStore((store) => store.partnerValue);
+  const expences = useStore((store) => store.expenses);
+
+  let totalExpensesArr = expences.map((expense) => {
+    return expense.cost;
+  });
+  console.log('Total expenses array ', totalExpensesArr);
+  console.log('Your Income', incomeYou);
+  console.log('Your Partner Income', incomePartner);
+
+  let totalExpenses = totalExpensesArr.reduce((a, b) => a + b, 0);
+
+  console.log('total total expenses', totalExpenses);
+
+  //     PayForA + PayForB = TotalPay
+  // PercentageToPayForA = PayForA/TotalPay *100
+  // PercentageToPayForB = PayForB/TotalPay *100
+  let totalPay = parseInt(incomeYou) + parseInt(incomePartner);
+
+  console.log('Your Total Income', totalPay);
+  console.log('Expenses', expences);
+
+  let percentageToPayForYou = (parseInt(incomeYou) / totalPay) * 100;
+  let percentageToPayForPartner = (parseInt(incomePartner) / totalPay) * 100;
+
+  console.log('percentage ', percentageToPayForYou.toFixed(2));
+  let youWillpay =
+    (totalExpenses.toFixed(2) * percentageToPayForYou.toFixed(2)) / 100;
+
+  let yourPartnerWillPay =
+    (totalExpenses.toFixed(2) * percentageToPayForPartner.toFixed(2)) / 100;
+
+  console.log('You will pay', youWillpay.toFixed(2));
 
   return (
     <>
@@ -134,23 +170,59 @@ const MainRight = () => {
 
           <button className='you-btn'>
             <span className='you-span'>You</span>
-            <span className='you-percentage'>6%</span>
+            <span className='you-percentage'>
+              {console.log(radio.split)}
+              {radio.split === true
+                ? `${percentageToPayForYou.toFixed(2)}%`
+                : radio.FytyFyty === true
+                ? `50%`
+                : radio.grabAbag === true
+                ? 'Bag'
+                : '0%'}
+            </span>
             <span className='you-amount-container'>
-              <span className='you-amount'>£100</span>/mo
+              <span className='you-amount'>
+                {radio.split === true
+                  ? `£${youWillpay.toFixed(2)}`
+                  : radio.FytyFyty === true
+                  ? `${totalExpenses.toFixed(2) / 2}`
+                  : radio.grabAbag
+                  ? 'bag'
+                  : '0'}
+              </span>
+              /mo
             </span>
           </button>
           <button className='you-btn'>
             <span className='you-span'>Partner</span>
-            <span className='you-percentage'>6%</span>
+            <span className='you-percentage'>
+              {' '}
+              {radio.split === true
+                ? `${percentageToPayForPartner.toFixed(2)}%`
+                : radio.FytyFyty === true
+                ? `50%`
+                : radio.grabAbag === true
+                ? 'Bag'
+                : '0%'}
+            </span>
             <span className='you-amount-container'>
-              <span className='you-amount'>£500</span>/mo
+              <span className='you-amount'>
+                {radio.split === true
+                  ? `£${yourPartnerWillPay.toFixed(2)}`
+                  : radio.FytyFyty === true
+                  ? `${totalExpenses.toFixed(2) / 2}`
+                  : radio.grabAbag
+                  ? 'bag'
+                  : '0'}
+              </span>
+              /mo
             </span>
           </button>
           <button className='you-btn no-border'>
             <span className='you-span'>Total</span>
             <span className='you-percentage'>100%</span>
             <span className='you-amount-container'>
-              <span className='you-amount'>£1,500</span>/mo
+              <span className='you-amount'>£{totalExpenses}</span>/mo
             </span>
           </button>
         </div>

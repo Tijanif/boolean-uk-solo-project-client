@@ -87,15 +87,18 @@ const useStore = create((set, get) => ({
       },
       body: JSON.stringify(userCredentials),
     }).then((response) => {
-      if (response.ok) {
-        return response.json();
+      console.log('logging response', response);
+      if (response.hasOwnProperty('ok')) {
+        return null;
       }
+      return response.json();
     });
+    console.log('Loggin loginUser', loginUser);
     if (loginUser) {
-      set({ loggedInUser: loginUser.user });
+      set({ loggedInUser: loginUser });
     } else {
       set({ loggedInUser: null });
-      alert('Wrong password');
+      console.log('It was null');
     }
   },
   setLogoutUser: async () => {

@@ -2,6 +2,7 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import useStore from '../store';
+import get from '../store';
 import { useHistory } from 'react-router';
 
 function LoginModal(props) {
@@ -20,11 +21,12 @@ function LoginModal(props) {
       password: target.password.value,
     };
     console.log(newCredentials);
-    setLoginUser(newCredentials);
+    setLoginUser(newCredentials).then(() => {
+      console.log('Checking logged in user', loggedInUser);
+      loggedInUser !== null ? history.push('/main') : history.push('/');
+    });
 
     // history.push('/main');
-
-    loggedInUser !== null ? history.push('/main') : history.push('/');
   };
 
   return (
