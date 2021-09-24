@@ -1,7 +1,6 @@
 import create from 'zustand';
 import env from 'react-dotenv';
-// const apiUrl = process.env.API_URL;
-import { useHistory } from 'react-router';
+
 const monthlyExpenses = [
   {
     id: 11,
