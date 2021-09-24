@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { TiDelete } from 'react-icons/ti';
 import Badge from 'react-bootstrap/Badge';
 import { DropdownButton } from 'react-bootstrap';
@@ -8,10 +8,17 @@ import useStore from '../../store';
 
 const ExpenseItem = (props) => {
   const removeExpenses = useStore((state) => state.removeExpenses);
+  const [payer, setPayer] = useState('payer');
 
   const handleDelete = () => {
     removeExpenses(props.id);
   };
+  const handlePayer = (e) => {
+    console.log('select target', e);
+    setPayer(e);
+  };
+
+  console.log('logging expense payer', props.payer);
   return (
     <li className='list-group-item container align-items-center'>
       <div className='row'>
@@ -20,11 +27,19 @@ const ExpenseItem = (props) => {
         <div className='col-sm'>
           <DropdownButton
             id='dropdown-basic-button'
-            title='Payer'
+            title={payer}
             className='my-dropdown'
+            onSelect={handlePayer}
           >
-            <Dropdown.Item href='#/action-1'>You</Dropdown.Item>
-            <Dropdown.Item href='#/action-2'>Partner</Dropdown.Item>
+            <Dropdown.Item href='#/action-1' eventKey='You'>
+              You
+            </Dropdown.Item>
+            <Dropdown.Item href='#/action-2' eventKey='Partner'>
+              Partner
+            </Dropdown.Item>
+            <Dropdown.Item href='#/action-2' eventKey='Payer'>
+              Payer
+            </Dropdown.Item>
           </DropdownButton>
         </div>
         <div className='col-sm'>

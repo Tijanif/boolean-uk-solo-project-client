@@ -18,8 +18,13 @@ const AddExpenseForm = () => {
       id: uuid(),
       description: description,
       cost: parseInt(cost),
+      payer: {
+        you: payer === 'You' ? payer : 'null',
+        partner: payer === 'Partner' ? payer : 'null',
+      },
     };
 
+    console.log('new expenses', newExpense);
     setExpenses(newExpense);
     setName('');
     setCost('');

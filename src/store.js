@@ -7,31 +7,55 @@ const monthlyExpenses = [
     id: 11,
     description: 'Electrity',
     cost: 100,
+    payer: {
+      you: 'you',
+      partner: 'partner',
+    },
   },
   {
     id: 12,
     description: 'Internet',
     cost: 45,
+    payer: {
+      you: 'you',
+      partner: 'partner',
+    },
   },
   {
     id: 13,
     description: 'Gym',
     cost: 60,
+    payer: {
+      you: 'you',
+      partner: 'partner',
+    },
   },
   {
     id: 14,
     description: 'Netflix',
     cost: 12,
+    payer: {
+      you: 'you',
+      partner: 'partner',
+    },
   },
   {
     id: 14,
     description: 'Rent',
     cost: 1200,
+    payer: {
+      you: 'you',
+      partner: 'partner',
+    },
   },
   {
     id: 15,
     description: 'Savings',
     cost: 800,
+    payer: {
+      you: 'you',
+      partner: 'partner',
+    },
   },
 ];
 
