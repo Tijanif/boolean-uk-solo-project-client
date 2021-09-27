@@ -8,6 +8,7 @@ import useStore from '../../store';
 
 const ExpenseItem = (props) => {
   const removeExpenses = useStore((state) => state.removeExpenses);
+  const setTotalExpensesYou = useStore((store) => store.setTotalExpensesYou);
   const [payer, setPayer] = useState('payer');
 
   const handleDelete = () => {
@@ -18,7 +19,6 @@ const ExpenseItem = (props) => {
     setPayer(e);
   };
 
-  console.log('logging expense payer', props.payer);
   return (
     <li className='list-group-item container align-items-center'>
       <div className='row'>

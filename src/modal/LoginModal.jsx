@@ -22,7 +22,6 @@ function LoginModal(props) {
     };
     console.log(newCredentials);
     setLoginUser(newCredentials).then(() => {
-      console.log('Checking logged in user', loggedInUser);
       loggedInUser !== null ? history.push('/main') : history.push('/');
     });
 

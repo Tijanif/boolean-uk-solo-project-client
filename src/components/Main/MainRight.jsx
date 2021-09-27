@@ -12,6 +12,10 @@ const MainRight = () => {
   const incomeYou = useStore((store) => store.youValue);
   const incomePartner = useStore((store) => store.partnerValue);
   const expences = useStore((store) => store.expenses);
+  const totalExpensesYou = useStore((store) => store.totalExpensesYou);
+  const setTotalExpensesYou = useStore((store) => store.setTotalExpensesYou);
+
+  console.log('My total expense', totalExpensesYou);
 
   let totalExpensesArr = expences.map((expense) => {
     return expense.cost;

@@ -15,13 +15,16 @@ const AddExpenseForm = () => {
     e.preventDefault();
 
     const newExpense = {
-      id: uuid(),
       description: description,
       cost: parseInt(cost),
-      payer: {
-        you: payer === 'You' ? payer : 'null',
-        partner: payer === 'Partner' ? payer : 'null',
-      },
+      assignTo:
+        payer === 'You'
+          ? payer
+          : 'null' || payer === 'Partner'
+          ? payer
+          : 'null' || payer === 'Payer'
+          ? payer
+          : 'null',
     };
 
     console.log('new expenses', newExpense);
@@ -65,6 +68,7 @@ const AddExpenseForm = () => {
           >
             <option value='You'>You</option>
             <option value='Partner'>Partner</option>
+            <option value='Payer'>none</option>
           </Form.Select>
 
           {/* <DropdownButton id='dropdown-basic-button' title='Payer'>

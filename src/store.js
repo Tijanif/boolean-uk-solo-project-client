@@ -6,66 +6,74 @@ const monthlyExpenses = [
     id: 11,
     description: 'Electrity',
     cost: 100,
-    payer: {
-      you: 'you',
-      partner: 'partner',
-    },
+    assignTo: '',
   },
   {
     id: 12,
     description: 'Internet',
     cost: 45,
-    payer: {
-      you: 'you',
-      partner: 'partner',
-    },
+    assignTo: '',
   },
   {
     id: 13,
     description: 'Gym',
     cost: 60,
-    payer: {
-      you: 'you',
-      partner: 'partner',
-    },
+    assignTo: '',
   },
   {
     id: 14,
     description: 'Netflix',
     cost: 12,
-    payer: {
-      you: 'you',
-      partner: 'partner',
-    },
+    assignTo: '',
   },
   {
     id: 14,
     description: 'Rent',
     cost: 1200,
-    payer: {
-      you: 'you',
-      partner: 'partner',
-    },
+    assignTo: '',
   },
   {
     id: 15,
     description: 'Savings',
     cost: 800,
-    payer: {
-      you: 'you',
-      partner: 'partner',
-    },
+    assignTo: '',
   },
 ];
 
 const useStore = create((set, get) => ({
   expenses: monthlyExpenses,
-  setExpenses: (newExpenses) => {
+  setExpenses: async (newExpenses) => {
     console.log('Getting expenses', get, get().expenses);
-    set({ expenses: [...get().expenses, newExpenses] });
+    const newExpense = await fetch(`${env.API_URL}expense/create`, {
+      method: 'POST',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newExpenses),
+    }).then((response) => {
+      if (response.ok) {
+        return response.json();
+      }
+    });
+    if (newExpense) set({ expenses: [...get().expenses, newExpenses] });
   },
   removeExpenses: (id) => {
     set({ expenses: get().expenses.filter((expense) => expense.id !== id) });
+  },
+  assignExpenses: async (expenseId, payer) => {
+    const updatedExpense = await fetch(`${env.API_URL}expenses/expenseId`, {
+      method: 'POST',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(updatedExpense),
+    }).then((response) => {
+      if (response.ok) {
+        return response.json();
+      }
+    });
   },
   signUpUserCredentials: {
     name: null,
@@ -143,6 +151,14 @@ const useStore = create((set, get) => ({
   partnerValue: 0,
   setPartnerValue: (partnerValue) => {
     set({ partnerValue });
+  },
+  totalExpensesYou: [],
+  setTotalExpensesYou: (totalExpensesYou) => {
+    set({ totalExpensesYou });
+  },
+  totalExpensesPartner: [],
+  setTotalExpensesPartner: (totalExpensesPartner) => {
+    set({ totalExpensesPartner });
   },
 }));
 

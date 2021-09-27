@@ -12,7 +12,7 @@ const ExpenseList = () => {
           id={expense.id}
           name={expense.description}
           cost={expense.cost}
-          payer={expense.payer}
+          assignTo={expense.assignTo}
         />
       ))}
     </ul>
